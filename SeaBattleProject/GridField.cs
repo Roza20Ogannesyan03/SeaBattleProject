@@ -43,21 +43,21 @@ namespace SeaBattleProject
         }
         public void LoadLevel()
         {
-            StreamReader file1 = new StreamReader("field1.txt");
-            StreamReader file2 = new StreamReader("EndGame1.txt");
+            StreamReader file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field2.txt");
+            StreamReader file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame2.txt");
             switch (Height)
             {
                 case 4:
-                    file1 = new StreamReader("field1.txt");
-                    file2 = new StreamReader("EndGame1.txt");
+                    file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field1.txt");
+                    file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame1.txt");
                     break;
                 case 5:
-                    file1 = new StreamReader("field2.txt");
-                    file2 = new StreamReader("EndGame2.txt");
+                    file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field2.txt");
+                    file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame2.txt");
                     break;
                 case 6:
-                    file1 = new StreamReader("field3.txt");
-                    file2 = new StreamReader("EndGame3.txt");
+                    file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field3.txt");
+                    file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame3.txt");
                     break;
             }
 
@@ -132,34 +132,37 @@ namespace SeaBattleProject
         public void Click(object sender, EventArgs e)
         {
             button = (Button)sender;
-            DgvMove.CurrentCell.Value = button.Image;
-            move[DgvMove.CurrentCell.RowIndex, DgvMove.CurrentCell.ColumnIndex] =
-                Convert.ToInt32(button.Tag.ToString());
+            if (DgvMove.CurrentCell.Value == null)
+            {
+                DgvMove.CurrentCell.Value = button.Image;
+                move[DgvMove.CurrentCell.RowIndex, DgvMove.CurrentCell.ColumnIndex] =
+                    Convert.ToInt32(button.Tag.ToString());
 
-            //MessageBox.Show(field[0,2].ToString());
+            }
+            DgvMove.CurrentCell.Selected = false;
         }
         public bool TryStep(int StepShip, int y, int x, int[,] tempField)
         {
 
-            if (StepShip == 1 && y - 1 >= 0)
+            if (StepShip == 4 && y - 1 >= 0)
             {
                 tempField[x, y - 1] = field[x, y];
                 return true;
             }
 
-            if (StepShip == 2 && y + 1 < Height)
+            if (StepShip == 3 && y + 1 < Height)
             {
                 tempField[x,y + 1] = field[x, y];
                 return true;
             }
 
-            if (StepShip == 3 && x + 1 <= Width - 1)
+            if (StepShip == 2 && x + 1 <= Width - 1)
             {
                 tempField[x + 1, y] = field[x, y];
                 return true;
             }
 
-            if (StepShip == 4 && x - 1 >= 0)
+            if (StepShip == 1 && x - 1 >= 0)
             {
                 tempField[x - 1, y] = field[x, y];
                 return true;
@@ -231,6 +234,16 @@ namespace SeaBattleProject
             return true;
         }
 
-
+        public void Restart(int stepindex)
+        {
+            for (int i = 0; i < stepindex; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    DgvMove.Rows[i].Cells[j].Value = null;
+                }
+            }
+        
+        }
     }
 }

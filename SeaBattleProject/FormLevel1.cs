@@ -13,7 +13,7 @@ namespace SeaBattleProject
     public partial class FormLevel1 : Form
     {
         GridField gf;
-        
+        int stepIndex = 4;
         public FormLevel1()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace SeaBattleProject
 
         private void FormLevel1_Load(object sender, EventArgs e)
         {
-            dgvMove1.Rows.Add(4);
+            dgvMove1.Rows.Add(stepIndex);
             dgvMove1.ClearSelection();
 
             dgvField1.Rows.Add(4);
@@ -38,7 +38,12 @@ namespace SeaBattleProject
 
         private void buttonToRun_Click(object sender, EventArgs e)
         {
-            gf.ToRun(4);
+            gf.ToRun(stepIndex);
+        }
+
+        private void buttonRestart_Click(object sender, EventArgs e)
+        {
+            gf.Restart(stepIndex);
         }
     }
 }

@@ -29,25 +29,25 @@ namespace SeaBattleProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvField3 = new System.Windows.Forms.DataGridView();
-            this.dgvMove3 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonToRun = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMove3 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonRestart = new System.Windows.Forms.Button();
+            this.buttonToRun = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -85,100 +85,6 @@ namespace SeaBattleProject
             this.dgvField3.RowTemplate.Height = 40;
             this.dgvField3.Size = new System.Drawing.Size(243, 243);
             this.dgvField3.TabIndex = 10;
-            // 
-            // dgvMove3
-            // 
-            this.dgvMove3.AllowUserToAddRows = false;
-            this.dgvMove3.AllowUserToDeleteRows = false;
-            this.dgvMove3.AllowUserToResizeColumns = false;
-            this.dgvMove3.AllowUserToResizeRows = false;
-            this.dgvMove3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMove3.ColumnHeadersVisible = false;
-            this.dgvMove3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dgvMove3.Location = new System.Drawing.Point(564, 113);
-            this.dgvMove3.Name = "dgvMove3";
-            this.dgvMove3.ReadOnly = true;
-            this.dgvMove3.RowHeadersVisible = false;
-            this.dgvMove3.RowTemplate.Height = 35;
-            this.dgvMove3.Size = new System.Drawing.Size(143, 283);
-            this.dgvMove3.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(297, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 33);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Уровень 3";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(36, 399);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 32);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Начать заново";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // buttonToRun
-            // 
-            this.buttonToRun.BackColor = System.Drawing.Color.White;
-            this.buttonToRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonToRun.Location = new System.Drawing.Point(36, 353);
-            this.buttonToRun.Name = "buttonToRun";
-            this.buttonToRun.Size = new System.Drawing.Size(243, 40);
-            this.buttonToRun.TabIndex = 17;
-            this.buttonToRun.Text = "Запустить";
-            this.buttonToRun.UseVisualStyleBackColor = false;
-            this.buttonToRun.Click += new System.EventHandler(this.buttonToRun_Click);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 35;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 35;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 35;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column4.HeaderText = "Column4";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 35;
             // 
             // Column10
             // 
@@ -221,6 +127,101 @@ namespace SeaBattleProject
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
             this.Column15.Width = 40;
+            // 
+            // dgvMove3
+            // 
+            this.dgvMove3.AllowUserToAddRows = false;
+            this.dgvMove3.AllowUserToDeleteRows = false;
+            this.dgvMove3.AllowUserToResizeColumns = false;
+            this.dgvMove3.AllowUserToResizeRows = false;
+            this.dgvMove3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMove3.ColumnHeadersVisible = false;
+            this.dgvMove3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgvMove3.Location = new System.Drawing.Point(564, 113);
+            this.dgvMove3.Name = "dgvMove3";
+            this.dgvMove3.ReadOnly = true;
+            this.dgvMove3.RowHeadersVisible = false;
+            this.dgvMove3.RowTemplate.Height = 35;
+            this.dgvMove3.Size = new System.Drawing.Size(143, 283);
+            this.dgvMove3.TabIndex = 11;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 35;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 35;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 35;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(297, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 33);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Уровень 3";
+            // 
+            // buttonRestart
+            // 
+            this.buttonRestart.BackColor = System.Drawing.Color.White;
+            this.buttonRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRestart.Location = new System.Drawing.Point(36, 399);
+            this.buttonRestart.Name = "buttonRestart";
+            this.buttonRestart.Size = new System.Drawing.Size(243, 32);
+            this.buttonRestart.TabIndex = 18;
+            this.buttonRestart.Text = "Начать заново";
+            this.buttonRestart.UseVisualStyleBackColor = false;
+            this.buttonRestart.Click += new System.EventHandler(this.buttonRestart_Click);
+            // 
+            // buttonToRun
+            // 
+            this.buttonToRun.BackColor = System.Drawing.Color.White;
+            this.buttonToRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonToRun.Location = new System.Drawing.Point(36, 353);
+            this.buttonToRun.Name = "buttonToRun";
+            this.buttonToRun.Size = new System.Drawing.Size(243, 40);
+            this.buttonToRun.TabIndex = 17;
+            this.buttonToRun.Text = "Запустить";
+            this.buttonToRun.UseVisualStyleBackColor = false;
+            this.buttonToRun.Click += new System.EventHandler(this.buttonToRun_Click);
             // 
             // button6
             // 
@@ -314,7 +315,7 @@ namespace SeaBattleProject
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonRestart);
             this.Controls.Add(this.buttonToRun);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox4);
@@ -346,7 +347,7 @@ namespace SeaBattleProject
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRestart;
         private System.Windows.Forms.Button buttonToRun;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
