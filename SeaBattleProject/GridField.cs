@@ -60,7 +60,6 @@ namespace SeaBattleProject
                     file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame3.txt");
                     break;
             }
-
             for (int i = 0; i < Height; i++)
             {
                 string[] s1 = file1.ReadLine().Split();
@@ -152,7 +151,7 @@ namespace SeaBattleProject
 
             if (StepShip == 3 && y + 1 < Height)
             {
-                tempField[x,y + 1] = field[x, y];
+                tempField[x, y + 1] = field[x, y];
                 return true;
             }
 
@@ -167,9 +166,7 @@ namespace SeaBattleProject
                 tempField[x - 1, y] = field[x, y];
                 return true;
             }
-
             return false;
-
         }
 
         public void ToRun(int stepIndex)
@@ -177,13 +174,11 @@ namespace SeaBattleProject
             bool win = true;
             for (int i = 0; i < stepIndex; i++)
             {
-
                 win = true;
                 var step1 = move[i, 0];
                 var step2 = move[i, 1];
                 var step3 = move[i, 2];
                 var step4 = move[i, 3];
-
                 var tempField = new int[Height, Width];
 
                 for (int x = 0; x < Height; x++)
@@ -238,12 +233,30 @@ namespace SeaBattleProject
         {
             for (int i = 0; i < stepindex; i++)
             {
-                for (int j = 0; j < 3; j++)
+                switch (Height)
                 {
-                    DgvMove.Rows[i].Cells[j].Value = null;
+                    case 4:
+                        for (int j = 0; j <2; j++)
+                        {
+                            DgvMove.Rows[i].Cells[j].Value = null;
+                        }
+                        break;
+                    case 5:
+                        for (int j = 0; j < 3; j++)
+                        {
+                            DgvMove.Rows[i].Cells[j].Value = null;
+                        }
+                        break;
+                    case 6:
+                        for (int j = 0; j < 4; j++)
+                        {
+                            DgvMove.Rows[i].Cells[j].Value = null;
+                        }
+                        break;
                 }
             }
-        
         }
+
     }
 }
+

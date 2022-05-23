@@ -291,7 +291,7 @@ namespace SeaBattleProject
             this.Controls.Add(this.buttonToRun);
             this.Controls.Add(this.dgvField2);
             this.Name = "FormLevel2";
-            this.Text = "FormLevel2";
+            this.Text = "Уровень 2";
             this.Load += new System.EventHandler(this.FormLevel2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvField2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMove2)).EndInit();

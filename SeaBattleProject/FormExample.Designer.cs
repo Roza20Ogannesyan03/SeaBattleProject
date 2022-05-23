@@ -30,11 +30,11 @@ namespace SeaBattleProject
         private void InitializeComponent()
         {
             this.dgvField1 = new System.Windows.Forms.DataGridView();
-            this.dgvEnd = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEnd = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +43,9 @@ namespace SeaBattleProject
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvField1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnd)).BeginInit();
             this.SuspendLayout();
@@ -66,26 +69,6 @@ namespace SeaBattleProject
             this.dgvField1.RowTemplate.Height = 40;
             this.dgvField1.Size = new System.Drawing.Size(163, 163);
             this.dgvField1.TabIndex = 12;
-            // 
-            // dgvEnd
-            // 
-            this.dgvEnd.AllowUserToAddRows = false;
-            this.dgvEnd.AllowUserToDeleteRows = false;
-            this.dgvEnd.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEnd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEnd.ColumnHeadersVisible = false;
-            this.dgvEnd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.dgvEnd.Location = new System.Drawing.Point(499, 229);
-            this.dgvEnd.Name = "dgvEnd";
-            this.dgvEnd.ReadOnly = true;
-            this.dgvEnd.RowHeadersVisible = false;
-            this.dgvEnd.RowTemplate.Height = 40;
-            this.dgvEnd.Size = new System.Drawing.Size(163, 163);
-            this.dgvEnd.TabIndex = 13;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -114,6 +97,26 @@ namespace SeaBattleProject
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 40;
+            // 
+            // dgvEnd
+            // 
+            this.dgvEnd.AllowUserToAddRows = false;
+            this.dgvEnd.AllowUserToDeleteRows = false;
+            this.dgvEnd.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEnd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEnd.ColumnHeadersVisible = false;
+            this.dgvEnd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.dgvEnd.Location = new System.Drawing.Point(499, 229);
+            this.dgvEnd.Name = "dgvEnd";
+            this.dgvEnd.ReadOnly = true;
+            this.dgvEnd.RowHeadersVisible = false;
+            this.dgvEnd.RowTemplate.Height = 40;
+            this.dgvEnd.Size = new System.Drawing.Size(163, 163);
+            this.dgvEnd.TabIndex = 13;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -183,11 +186,44 @@ namespace SeaBattleProject
             this.label4.TabIndex = 18;
             this.label4.Text = "местами. Форма корабликов не меняется!";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(67, 250);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(296, 20);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Ходить корабликами по очереди,";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(147, 311);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 20);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "не в разброс!";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(47, 282);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(337, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "(сначала первый,потом  второй и т.д.)";
+            // 
             // FormExample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -195,7 +231,7 @@ namespace SeaBattleProject
             this.Controls.Add(this.dgvEnd);
             this.Controls.Add(this.dgvField1);
             this.Name = "FormExample";
-            this.Text = "FormExample";
+            this.Text = "Инструкция";
             this.Load += new System.EventHandler(this.FormExample_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvField1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnd)).EndInit();
@@ -220,5 +256,8 @@ namespace SeaBattleProject
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
