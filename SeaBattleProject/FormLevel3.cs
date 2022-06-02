@@ -42,6 +42,9 @@ namespace SeaBattleProject
 
         private void buttonRestart_Click(object sender, EventArgs e)
         {
+            gf = new GridField(6, 6, dgvField3, dgvMove3);
+            gf.LoadLevel();
+            gf.ColorTheField();
             gf.Restart(stepIndex);
         }
     }

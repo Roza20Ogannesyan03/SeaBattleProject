@@ -73,7 +73,7 @@ namespace SeaBattleProject
             file1.Close();
             file2.Close();
         }
-        public void ColorTheField()
+        public  void ColorTheField()
         {
             Dgv.ClearSelection();
             Dgv.Enabled = false;
@@ -131,13 +131,12 @@ namespace SeaBattleProject
         public void Click(object sender, EventArgs e)
         {
             button = (Button)sender;
-            if (DgvMove.CurrentCell.Value == null)
-            {
+            //if (DgvMove.CurrentCell.Value == null)
+            //{
                 DgvMove.CurrentCell.Value = button.Image;
                 move[DgvMove.CurrentCell.RowIndex, DgvMove.CurrentCell.ColumnIndex] =
                     Convert.ToInt32(button.Tag.ToString());
-
-            }
+            //}
             DgvMove.CurrentCell.Selected = false;
         }
         public bool TryStep(int StepShip, int y, int x, int[,] tempField)
@@ -169,8 +168,52 @@ namespace SeaBattleProject
             return false;
         }
 
-        public void ToRun(int stepIndex)
+        public void Join(int[,] a, int number, int[,] a2)
         {
+            int cnt = 0;
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Width; j++)
+                {
+                    if(a[i,j] == number)
+                    {
+                        cnt++;
+                        break;
+                    }
+                }
+            }
+            if (cnt != 0)
+            {
+                Delete(number, a2);
+                ChangingLocationShip(a, a2);
+            }
+
+        }
+        public void Delete(int num, int[,] arr2)
+        {
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Width; j++)
+                {
+                    if (arr2[i, j] == num)
+                        arr2[i, j] = 0;
+                }
+            }
+        }
+        public void ChangingLocationShip(int[,] a1,int[,] a2)
+        {
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Width; j++)
+                {
+                    if (a1[i, j] != 0)
+                        a2[i, j] = a1[i,j];
+                }
+            }
+        }
+        public async void ToRun(int stepIndex)
+        {
+            var tempField = new int[Height, Width];
             bool win = true;
             for (int i = 0; i < stepIndex; i++)
             {
@@ -179,31 +222,57 @@ namespace SeaBattleProject
                 var step2 = move[i, 1];
                 var step3 = move[i, 2];
                 var step4 = move[i, 3];
-                var tempField = new int[Height, Width];
-
+                
+                var tempField1 = new int[Height, Width];
+                var tempField2 = new int[Height, Width];
+                var tempField3 = new int[Height, Width];
+                var tempField4 = new int[Height, Width];
                 for (int x = 0; x < Height; x++)
                 {
                     for (int y = 0; y < Width; y++)
                     {
 
-                        if (field[x, y] == 1)
-                            win = TryStep(step1, y, x, tempField);
+                        if (field[x, y] == 1 && step1 != 0)
+                            win = TryStep(step1, y, x, tempField1);
 
-                        else if (field[x, y] == 2)
-                            win = TryStep(step2, y, x, tempField);
+                        else if (field[x, y] == 2 && step2 != 0)
+                            win = TryStep(step2, y, x, tempField2);
 
-                        else if (field[x, y] == 3)
-                            win = TryStep(step3, y, x, tempField);
+                        else if (field[x, y] == 3 && step3 != 0)
+                            win = TryStep(step3, y, x, tempField3);
 
-                        else if (field[x, y] == 4)
-                            win = TryStep(step4, y, x, tempField);
+                        else if (field[x, y] == 4 && step4 != 0)
+                            win = TryStep(step4, y, x, tempField4);
 
                         if (win == false)
+                        {
+                            ColorTheField();
                             goto finish;
-
+                        }
                     }
                 }
+                switch(Height)
+                {
+                    case 4:
+
+                        Join(tempField1, 1, tempField);
+                        Join(tempField2, 2, tempField);
+                        break;
+                    case 5:
+                        Join(tempField1, 1, tempField);
+                        Join(tempField2, 2, tempField);
+                        Join(tempField3, 3, tempField);
+                        break;
+                    case 6:
+                        Join(tempField1, 1, tempField);
+                        Join(tempField2, 2, tempField);
+                        Join(tempField3, 3, tempField);
+                        Join(tempField4, 4, tempField);
+                        break;
+                }
+
                 field = tempField;
+                await Task.Delay(1000);
                 ColorTheField();
             }
 
