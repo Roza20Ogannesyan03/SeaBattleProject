@@ -43,23 +43,18 @@ namespace SeaBattleProject
         }
         public void LoadLevel()
         {
-            StreamReader file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field2.txt");
-            StreamReader file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame2.txt");
-            switch (Height)
+            var curDir = Environment.CurrentDirectory + @"\..\..\files";
+
+            StreamReader file1 = new StreamReader(curDir + "/field2.txt");
+
+            StreamReader file2 = new StreamReader(curDir + "/EndGame2.txt");
+
+            if (new int[] { 4, 5, 6 }.Contains(Height))
             {
-                case 4:
-                    file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field1.txt");
-                    file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame1.txt");
-                    break;
-                case 5:
-                    file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field2.txt");
-                    file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame2.txt");
-                    break;
-                case 6:
-                    file1 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/field3.txt");
-                    file2 = new StreamReader("D:/SeaBattleProject/SeaBattleProject/files/EndGame3.txt");
-                    break;
+                file1 = new StreamReader(curDir + $"/field{Height - 3}.txt");
+                file2 = new StreamReader(curDir + $"/EndGame{Height - 3}.txt");
             }
+
             for (int i = 0; i < Height; i++)
             {
                 string[] s1 = file1.ReadLine().Split();
@@ -73,7 +68,7 @@ namespace SeaBattleProject
             file1.Close();
             file2.Close();
         }
-        public  void ColorTheField()
+        public void ColorTheField()
         {
             Dgv.ClearSelection();
             Dgv.Enabled = false;
@@ -119,11 +114,11 @@ namespace SeaBattleProject
 
                             else if (field[i, j] == 4)
                                 Dgv.Rows[i].Cells[j].Style.BackColor = Color.HotPink;
-
+                           
                             else Dgv.Rows[i].Cells[j].Style.BackColor = Color.White;
                             break;
-                    }
 
+                    }
                 }
             }
         }
@@ -133,9 +128,9 @@ namespace SeaBattleProject
             button = (Button)sender;
             //if (DgvMove.CurrentCell.Value == null)
             //{
-                DgvMove.CurrentCell.Value = button.Image;
-                move[DgvMove.CurrentCell.RowIndex, DgvMove.CurrentCell.ColumnIndex] =
-                    Convert.ToInt32(button.Tag.ToString());
+            DgvMove.CurrentCell.Value = button.Image;
+            move[DgvMove.CurrentCell.RowIndex, DgvMove.CurrentCell.ColumnIndex] =
+                Convert.ToInt32(button.Tag.ToString());
             //}
             DgvMove.CurrentCell.Selected = false;
         }
@@ -175,7 +170,7 @@ namespace SeaBattleProject
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    if(a[i,j] == number)
+                    if (a[i, j] == number)
                     {
                         cnt++;
                         break;
@@ -200,14 +195,14 @@ namespace SeaBattleProject
                 }
             }
         }
-        public void ChangingLocationShip(int[,] a1,int[,] a2)
+        public void ChangingLocationShip(int[,] a1, int[,] a2)
         {
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)
                 {
                     if (a1[i, j] != 0)
-                        a2[i, j] = a1[i,j];
+                        a2[i, j] = a1[i, j];
                 }
             }
         }
@@ -222,7 +217,7 @@ namespace SeaBattleProject
                 var step2 = move[i, 1];
                 var step3 = move[i, 2];
                 var step4 = move[i, 3];
-                
+
                 var tempField1 = new int[Height, Width];
                 var tempField2 = new int[Height, Width];
                 var tempField3 = new int[Height, Width];
@@ -246,15 +241,13 @@ namespace SeaBattleProject
 
                         if (win == false)
                         {
-                            ColorTheField();
                             goto finish;
                         }
                     }
                 }
-                switch(Height)
+                switch (Height)
                 {
                     case 4:
-
                         Join(tempField1, 1, tempField);
                         Join(tempField2, 2, tempField);
                         break;
@@ -270,12 +263,10 @@ namespace SeaBattleProject
                         Join(tempField4, 4, tempField);
                         break;
                 }
-
                 field = tempField;
                 await Task.Delay(1000);
                 ColorTheField();
             }
-
             finish:
             ColorTheField();
             if (win && CheckWin()) MessageBox.Show("Поздравляю, вы выиграли!");
@@ -305,7 +296,7 @@ namespace SeaBattleProject
                 switch (Height)
                 {
                     case 4:
-                        for (int j = 0; j <2; j++)
+                        for (int j = 0; j < 2; j++)
                         {
                             DgvMove.Rows[i].Cells[j].Value = null;
                         }

@@ -20,7 +20,7 @@ namespace SeaBattleProject
 
         private void FormExample_Load(object sender, EventArgs e)
         {
-           
+
             dgvField1.Rows.Add(4);
             gf = new GridField(4, 4, dgvField1);
             gf.LoadLevel();
@@ -37,6 +37,10 @@ namespace SeaBattleProject
             dgvEnd.Rows[2].Cells[3].Style.BackColor = Color.Violet;
             dgvEnd.Rows[2].Cells[2].Style.BackColor = Color.Violet;
             dgvEnd.Rows[3].Cells[2].Style.BackColor = Color.Violet;
+
+            label1.Text = " Суть этой игры заключается в том,\n\nчтобы поменять кораблики расположенные\n\n" +
+                    "друг напротив друга(на одной диагонали) \n\nместами. Форма корабликов не меняется!\n\n" +
+               " Ходить корабликами по очереди,\n\n (сначала первый,потом второй и т.д.)\n\n не в разброс!";
         }
     }
 }
