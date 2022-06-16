@@ -52,3 +52,4 @@
 4.Инструкция для пользователей
 
 https://docs.google.com/document/d/1kPOU2sweJw3n5ztb8ewyyh4AIdJuWgJ76S-IMeY_nxA/edit?usp=sharing
+[Текст курсовой](https://docs.google.com/document/d/1kPOU2sweJw3n5ztb8ewyyh4AIdJuWgJ76S-IMeY_nxA/edit?usp=sharing)
