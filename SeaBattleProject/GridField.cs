@@ -43,7 +43,7 @@ namespace SeaBattleProject
         }
         public void LoadLevel()
         {
-            var curDir = Environment.CurrentDirectory + @"\..\..\files";
+            var curDir = Environment.CurrentDirectory + @"/files";
 
             StreamReader file1 = new StreamReader(curDir + "/field2.txt");
 
@@ -68,97 +68,113 @@ namespace SeaBattleProject
             file1.Close();
             file2.Close();
         }
-        public void ColorTheField()
+        public void Colors(Color[] colors)
         {
-            Dgv.ClearSelection();
-            Dgv.Enabled = false;
-
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    switch (Height)
-                    {
-                        case 4:
-                            if (field[i, j] == 1)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
+                    if (field[i, j] == 1)
+                        Dgv.Rows[i].Cells[j].Style.BackColor = colors[0];
 
-                            else if (field[i, j] == 2)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.Violet;
+                    else if (field[i, j] == 2)
+                        Dgv.Rows[i].Cells[j].Style.BackColor = colors[1];
 
-                            else Dgv.Rows[i].Cells[j].Style.BackColor = Color.White;
-                            break;
+                    else if (field[i, j] == 3)
+                        Dgv.Rows[i].Cells[j].Style.BackColor = colors[2];
 
-                        case 5:
-                            if (field[i, j] == 1)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.DarkMagenta;
+                    else if (field[i, j] == 4)
+                        Dgv.Rows[i].Cells[j].Style.BackColor = colors[3];
 
-                            else if (field[i, j] == 2)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.DeepPink;
-
-                            else if (field[i, j] == 3)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.BlueViolet;
-
-                            else Dgv.Rows[i].Cells[j].Style.BackColor = Color.White;
-                            break;
-
-                        case 6:
-                            if (field[i, j] == 1)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.BlanchedAlmond;
-
-                            else if (field[i, j] == 2)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.DarkOrchid;
-
-                            else if (field[i, j] == 3)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.Indigo;
-
-                            else if (field[i, j] == 4)
-                                Dgv.Rows[i].Cells[j].Style.BackColor = Color.HotPink;
-                           
-                            else Dgv.Rows[i].Cells[j].Style.BackColor = Color.White;
-                            break;
-
-                    }
+                    else Dgv.Rows[i].Cells[j].Style.BackColor = Color.White;
                 }
             }
+        }
+        public void ColorTheField()
+        {
+            Dgv.ClearSelection();
+            Dgv.Enabled = false;
+            int level = Height - 3;
+            Color[] temp_mas1 = { Color.Yellow, Color.Violet, Color.White };
+            Color[] temp_mas2 = { Color.DarkMagenta, Color.DeepPink, Color.BlueViolet, Color.White };
+            Color[] temp_mas3 = { Color.FromArgb(255, 179, 242), Color.DarkOrchid, Color.Indigo, Color.HotPink, Color.White };
+            if (level == 1)
+                Colors(temp_mas1);
+            if (level == 2)
+                Colors(temp_mas2);
+            if (level == 3)
+                Colors(temp_mas3);
         }
 
         public void Click(object sender, EventArgs e)
         {
             button = (Button)sender;
-            //if (DgvMove.CurrentCell.Value == null)
-            //{
             DgvMove.CurrentCell.Value = button.Image;
             move[DgvMove.CurrentCell.RowIndex, DgvMove.CurrentCell.ColumnIndex] =
                 Convert.ToInt32(button.Tag.ToString());
-            //}
             DgvMove.CurrentCell.Selected = false;
         }
+       
         public bool TryStep(int StepShip, int y, int x, int[,] tempField)
         {
 
             if (StepShip == 4 && y - 1 >= 0)
             {
-                tempField[x, y - 1] = field[x, y];
-                return true;
+                if (field[x, y - 1] != 0 && tempField[x, y - 1] != field[x, y-1])
+                {
+                    korablivrezalis = true;
+                    return false;
+                }
+                if (tempField[x, y - 1] == 0 || tempField[x, y] == tempField[x, y - 1])
+                {
+                    tempField[x, y - 1] = field[x, y];
+                    return true;
+                }
+                return false;
             }
 
             if (StepShip == 3 && y + 1 < Height)
             {
-                tempField[x, y + 1] = field[x, y];
-                return true;
+                if (field[x, y + 1] != 0 && tempField[x, y + 1] != field[x, y + 1])
+                {
+                    korablivrezalis = true;
+                    return false;
+                }
+                if (tempField[x, y + 1] == 0 || tempField[x, y] == tempField[x, y + 1])
+                {
+                    tempField[x, y + 1] = field[x, y];
+                    return true;
+                }
+                return false;
             }
 
             if (StepShip == 2 && x + 1 <= Width - 1)
             {
-                tempField[x + 1, y] = field[x, y];
-                return true;
+                if (field[x + 1, y] != 0 && tempField[x + 1, y] != field[x + 1, y])
+                {
+                    korablivrezalis = true;
+                    return false;
+                }
+                if (tempField[x + 1, y] == 0 || tempField[x, y] == tempField[x + 1, y])
+                {
+                    tempField[x + 1, y] = field[x, y];
+                    return true;
+                }
+                return false;
             }
 
             if (StepShip == 1 && x - 1 >= 0)
             {
-                tempField[x - 1, y] = field[x, y];
-                return true;
+                if (field[x - 1, y] != 0 && tempField[x - 1, y] != field[x - 1, y])
+                {
+                    korablivrezalis = true;
+                    return false;
+                }
+                if (tempField[x - 1, y] == 0 || tempField[x, y] == tempField[x - 1, y])
+                {
+                    tempField[x - 1, y] = field[x, y];
+                    return true;
+                }
             }
             return false;
         }
@@ -206,6 +222,7 @@ namespace SeaBattleProject
                 }
             }
         }
+        public bool korablivrezalis = false;
         public async void ToRun(int stepIndex)
         {
             var tempField = new int[Height, Width];
@@ -265,13 +282,15 @@ namespace SeaBattleProject
                 }
                 field = tempField;
                 await Task.Delay(1000);
-                ColorTheField();
             }
             finish:
             ColorTheField();
             if (win && CheckWin()) MessageBox.Show("Поздравляю, вы выиграли!");
             else MessageBox.Show("Вы проиграли");
+            if (korablivrezalis)
+                MessageBox.Show("Корабли не должны столкнуться!");
         }
+
 
         public bool CheckWin()
         {

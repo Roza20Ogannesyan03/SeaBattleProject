@@ -13,6 +13,7 @@ namespace SeaBattleProject
     public partial class FormLevel1 : Form
     {
         GridField gf;
+        GridField gf1;
         int stepIndex = 4;
         public FormLevel1()
         {
@@ -29,6 +30,17 @@ namespace SeaBattleProject
             gf.LoadLevel();
             gf.ColorTheField();
 
+            
+            dgvExample1.Rows.Add(4);
+            dgvExample1.ClearSelection();
+
+            dgvExample1.Rows[0].Cells[1].Style.BackColor = Color.FromArgb(246, 204, 255);
+            dgvExample1.Rows[1].Cells[1].Style.BackColor = Color.FromArgb(246, 204, 255);
+            dgvExample1.Rows[1].Cells[0].Style.BackColor = Color.FromArgb(246, 204, 255);
+
+            dgvExample1.Rows[2].Cells[3].Style.BackColor = Color.FromArgb(255, 255, 128);
+            dgvExample1.Rows[2].Cells[2].Style.BackColor = Color.FromArgb(255, 255, 128);
+            dgvExample1.Rows[3].Cells[2].Style.BackColor = Color.FromArgb(255, 255, 128);
         }
 
         public void buttonMove_Click(object sender, EventArgs e)

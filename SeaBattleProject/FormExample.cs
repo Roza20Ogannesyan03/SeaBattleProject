@@ -30,13 +30,13 @@ namespace SeaBattleProject
             dgvEnd.ClearSelection();
             dgvEnd.Enabled = false;
 
-            dgvEnd.Rows[0].Cells[1].Style.BackColor = Color.Yellow;
-            dgvEnd.Rows[1].Cells[1].Style.BackColor = Color.Yellow;
-            dgvEnd.Rows[1].Cells[0].Style.BackColor = Color.Yellow;
+            dgvEnd.Rows[0].Cells[1].Style.BackColor = Color.Violet;
+            dgvEnd.Rows[1].Cells[1].Style.BackColor = Color.Violet;
+            dgvEnd.Rows[1].Cells[0].Style.BackColor = Color.Violet;
 
-            dgvEnd.Rows[2].Cells[3].Style.BackColor = Color.Violet;
-            dgvEnd.Rows[2].Cells[2].Style.BackColor = Color.Violet;
-            dgvEnd.Rows[3].Cells[2].Style.BackColor = Color.Violet;
+            dgvEnd.Rows[2].Cells[3].Style.BackColor = Color.Yellow;
+            dgvEnd.Rows[2].Cells[2].Style.BackColor = Color.Yellow;
+            dgvEnd.Rows[3].Cells[2].Style.BackColor = Color.Yellow;
 
             label1.Text = " Суть этой игры заключается в том,\n\nчтобы поменять кораблики расположенные\n\n" +
                     "друг напротив друга(на одной диагонали) \n\nместами. Форма корабликов не меняется!\n\n" +
