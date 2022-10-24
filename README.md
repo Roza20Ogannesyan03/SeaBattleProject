@@ -55,3 +55,4 @@
 [Текст курсовой](https://docs.google.com/document/d/1kPOU2sweJw3n5ztb8ewyyh4AIdJuWgJ76S-IMeY_nxA/edit?usp=sharing)
 
 [Презентация](https://docs.google.com/presentation/d/1icDXHUXEluEanXDfSxA_hw78-Ti0DQQG2DD3u_OYUYA/edit#slide=id.p)
+ТЗ https://docs.google.com/document/d/1htucUr3IPoBKPJaco5t5zgaXTo2tgl6OKyXd3yJ29x0/edit
